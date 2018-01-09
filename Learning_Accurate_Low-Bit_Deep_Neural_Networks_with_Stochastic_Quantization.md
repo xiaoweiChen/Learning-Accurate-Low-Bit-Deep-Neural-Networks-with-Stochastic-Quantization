@@ -118,15 +118,15 @@ $$N_q =r \times m;$$
 
 $$for \  i = 1 \ to \ N_q do$$
 
-&emsp;$$ Normalize  {p} (with  {p} = p / ||p||_1);  \ \ \  \triangleright ||p||_1 is L1 norm of p$$
+&emsp;$$ Normalize  {p}  \ (with \ {p} = p / ||p||_1);  \ \ \  \triangleright ||p||_1 \ is \ L1 \ norm \ of \ p$$
 
 &emsp;$$Sample \  a \ random \ value \ v_i \ uniformly \ in \ (0,1];$$
 
-&emsp;$$Set s_i = 0, and j = 0;  \ \ \ \triangleright s_i  \ accumulates \ the \ normalized \ probability$$
+&emsp;$$Set \ s_i = 0, \ and \ j \ = 0;  \ \ \ \triangleright s_i  \ accumulates \ the \ normalized \ probability$$
 
-​&emsp;$$ {while} \  s_i < v_i \  {do};$$
+&emsp;$$ {while} \  s_i < v_i \  {do};$$
 
-&emsp;&emsp;$$j=j+1;s_i=s_i+ {p}_j; {3in} \triangleright  {p}_j is the j-th element  { {p}}$$
+&emsp;&emsp;$$j=j+1;s_i=s_i+ {p}_j; \ \ \  \triangleright  {p}_j \ is \ the \ j-th \ element \ p$$
 
 &emsp;$$ {end \ while}$$
 
@@ -181,15 +181,15 @@ $$
 
 量化$$\mathcal{W}^t$$的每行，并得到量化矩阵 $$\mathcal{Q}^t$$；
 
-$$if \ r^t < 100\% \ then$$
+$$if \ r^t < 100\% \ then​$$
 
-​&emsp;计算量化误差e；
+&emsp;计算量化误差e；
 
-​&emsp;计算量化概率p；
+&emsp;计算量化概率p；
 
-​&emsp;使用算法1中的$$r^t$$和**p**向量，将$$\mathcal{W}^t$$划分为$$G_q$$和$$G_r$$ ；
+&emsp;使用算法1中的$$r^t$$和**p**向量，将$$\mathcal{W}^t$$划分为$$G_q$$和$$G_r$$ ；
 
-​&emsp;计算得混合矩阵$$ { \mathcal{Q}^t}$$：当$$W_i \in G_r$$ 那么$$  {Q_i} = W_i$$，否则$$  {Q_i} = Q_i$$ ；
+&emsp;计算得混合矩阵$$ { \mathcal{Q}^t}$$：当$$W_i \in G_r$$ 那么$$  {Q_i} = W_i$$，否则$$  {Q_i} = Q_i$$ ；
 
 $$else$$
 
