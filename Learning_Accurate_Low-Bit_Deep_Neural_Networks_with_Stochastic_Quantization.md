@@ -1,4 +1,4 @@
-# 使用随机量化量化深度神经网络
+# 使用随机量化算法量化深度神经网络
 
 [原文链接](https://arxiv.org/abs/1708.01001)
 
@@ -116,7 +116,7 @@ $$G_q = \varnothing;G_r = \varnothing$$
 
 $$N_q =r \times m;$$
 
-$$for \  i = 1 \ to \ N_q do$$
+$$for \  i = 1 \ to \ N_q \ do$$
 
 &emsp;$$ Normalize  {p}  \ (with \ {p} = p / ||p||_1);  \ \ \  \triangleright ||p||_1 \ is \ L1 \ norm \ of \ p$$
 
