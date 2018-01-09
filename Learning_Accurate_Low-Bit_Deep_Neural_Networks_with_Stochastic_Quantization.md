@@ -118,23 +118,23 @@ $$N_q =r \times m;$$
 
 $$for \  i = 1 \ to \ N_q do$$
 
-​&emsp;$$ Normalize \boldsymbol{p} (with \widetilde{p} = p / ||p||_1); \hspace{3in} \triangleright ||p||_1 is L1 norm of p$$
+​&emsp;$$ Normalize  {p} (with \widetilde{p} = p / ||p||_1); \hspace{3in} \triangleright ||p||_1 is L1 norm of p$$
 
 ​&emsp;$$Sample a random value v i uniformly in (0,1];$$
 
 ​&emsp;$$Set s_i = 0, and j = 0; \hspace{3in} \triangleright s_i  s i accumulates the normalized probability$$
 
-​&emsp;$$\boldsymbol{while} \  s_i < v_i \ \boldsymbol{do};$$
+​&emsp;$$ {while} \  s_i < v_i \  {do};$$
 
-​&emsp;&emsp;$$j=j+1;s_i=s_i+\widetilde{p}_j;\hspace{3in} \triangleright \widetilde{p}_j is the j-th element \widetilde{\boldsymbol{p}}$$
+​&emsp;&emsp;$$j=j+1;s_i=s_i+\widetilde{p}_j;\hspace{3in} \triangleright \widetilde{p}_j is the j-th element \widetilde{ {p}}$$
 
-​&emsp;$$\boldsymbol{end \ while}$$
+​&emsp;$$ {end \ while}$$
 
 ​&emsp;$$G_q = G_q \cup \{W_j\};$$
 
 ​&emsp;$$p_j =0;\hspace{4in} \triangleright   avoid j-th channels being selected again$$
 
-$$\boldsymbol{end \ for}$$
+$$ {end \ for}$$
 
 $$G_r= \mathcal{W} /\ G_q;$$
 
@@ -150,7 +150,7 @@ $$G_r= \mathcal{W} /\ G_q;$$
 $$
 (6) \ e_i = \frac{||W_i - Q_i||_1}{||W_i||_1}
 $$
-之后，我们使用计算出来的量化误差向量$$\boldsymbol{e}=[e_1, e_2, ...,e_n]$$来定义量化概率。量化概率$$p_i$$与$$e_i$$成反比。我们定义了一个中间变量$$f_i= \frac{1}{e_i + \varepsilon}$$ 来表示这个反比关系，这里$$\varepsilon$$是一个非常小的值，例如$$10^{-7}$$，加上这个数仅是为了避免除零操作。概率方程$$f_i$$必须是一个单调递增函数。这里我们可以考虑四种不同的选择：
+之后，我们使用计算出来的量化误差向量$$ {e}=[e_1, e_2, ...,e_n]$$来定义量化概率。量化概率$$p_i$$与$$e_i$$成反比。我们定义了一个中间变量$$f_i= \frac{1}{e_i + \varepsilon}$$ 来表示这个反比关系，这里$$\varepsilon$$是一个非常小的值，例如$$10^{-7}$$，加上这个数仅是为了避免除零操作。概率方程$$f_i$$必须是一个单调递增函数。这里我们可以考虑四种不同的选择：
 
 1. 常量函数：对于所有通道使用同一个概率：$$p_i= \frac{1}{m}$$。这样在对全局使用随机选择策略时，就能忽略量化误差。
 2. 线性函数：比如$$p_i = \frac{f_i}{\sum_jf_j}$$。
