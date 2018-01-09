@@ -72,7 +72,7 @@ $$
 -1    && if \quad W_j^j <-\Delta \\
 \end{aligned}
 \right.
-\quad 并且
+\quad and
 \alpha = \frac{1}{|I_{\Delta}}| \sum_{i \in I_{\Delta}}|W^j_i|,
 $$
 这里的$$\Delta$$是通过下面一些值计算出的一个正阈值：
