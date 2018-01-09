@@ -118,21 +118,21 @@ $$N_q =r \times m;$$
 
 $$for \  i = 1 \ to \ N_q do$$
 
-​&emsp;$$ Normalize  {p} (with  {p} = p / ||p||_1); \hspace{3in} \triangleright ||p||_1 is L1 norm of p$$
+​&emsp;$$ Normalize  {p} (with  {p} = p / ||p||_1);  {3in} \triangleright ||p||_1 is L1 norm of p$$
 
 ​&emsp;$$Sample a random value v i uniformly in (0,1];$$
 
-​&emsp;$$Set s_i = 0, and j = 0; \hspace{3in} \triangleright s_i  s i accumulates the normalized probability$$
+​&emsp;$$Set s_i = 0, and j = 0;  {3in} \triangleright s_i  s i accumulates the normalized probability$$
 
 ​&emsp;$$ {while} \  s_i < v_i \  {do};$$
 
-​&emsp;&emsp;$$j=j+1;s_i=s_i+ {p}_j;\hspace{3in} \triangleright  {p}_j is the j-th element  { {p}}$$
+​&emsp;&emsp;$$j=j+1;s_i=s_i+ {p}_j; {3in} \triangleright  {p}_j is the j-th element  { {p}}$$
 
 ​&emsp;$$ {end \ while}$$
 
 ​&emsp;$$G_q = G_q \cup \{W_j\};$$
 
-​&emsp;$$p_j =0;\hspace{4in} \triangleright   avoid j-th channels being selected again$$
+​&emsp;$$p_j =0; {4in} \triangleright   avoid j-th channels being selected again$$
 
 $$ {end \ for}$$
 
