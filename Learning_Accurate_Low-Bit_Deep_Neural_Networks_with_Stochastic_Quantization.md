@@ -118,7 +118,7 @@ $$N_q =r \times m;$$
 
 $$for \  i = 1 \ to \ N_q do$$
 
-​&emsp;$$ Normalize  {p} (with \widetilde{p} = p / ||p||_1); \hspace{3in} \triangleright ||p||_1 is L1 norm of p$$
+​&emsp;$$ Normalize  {p} (with  {p} = p / ||p||_1); \hspace{3in} \triangleright ||p||_1 is L1 norm of p$$
 
 ​&emsp;$$Sample a random value v i uniformly in (0,1];$$
 
@@ -126,7 +126,7 @@ $$for \  i = 1 \ to \ N_q do$$
 
 ​&emsp;$$ {while} \  s_i < v_i \  {do};$$
 
-​&emsp;&emsp;$$j=j+1;s_i=s_i+\widetilde{p}_j;\hspace{3in} \triangleright \widetilde{p}_j is the j-th element \widetilde{ {p}}$$
+​&emsp;&emsp;$$j=j+1;s_i=s_i+ {p}_j;\hspace{3in} \triangleright  {p}_j is the j-th element  { {p}}$$
 
 ​&emsp;$$ {end \ while}$$
 
@@ -189,17 +189,17 @@ $$if \ r^t < 100\% \ then$$
 
 ​&emsp;使用算法1中的$$r^t$$和**p**向量，将$$\mathcal{W}^t$$划分为$$G_q$$和$$G_r$$ ；
 
-​&emsp;计算得混合矩阵$$\widetilde{ \mathcal{Q}^t}$$：当$$W_i \in G_r$$ 那么$$ \widetilde{Q_i} = W_i$$，否则$$ \widetilde{Q_i} = Q_i$$ ；
+​&emsp;计算得混合矩阵$$ { \mathcal{Q}^t}$$：当$$W_i \in G_r$$ 那么$$  {Q_i} = W_i$$，否则$$  {Q_i} = Q_i$$ ；
 
 $$else$$
 
-​&emsp;$$\widetilde{Q^t}=Q^t$$;
+​&emsp;$$ {Q^t}=Q^t$$;
 
 $$end \ if$$
 
-$$\hat{Y} = Forward(X, \widetilde{\mathcal{Q}^t})$$;
+$$\hat{Y} = Forward(X,  {\mathcal{Q}^t})$$;
 
-$$\frac{\partial \mathcal{L}}{\partial \widetilde{ \mathcal{Q}_t}}=Backward(\frac{\partial \mathcal{L}}{\partial \hat{Y}},  \widetilde{ \mathcal{Q}^t })$$
+$$\frac{\partial \mathcal{L}}{\partial  { \mathcal{Q}_t}}=Backward(\frac{\partial \mathcal{L}}{\partial \hat{Y}},   { \mathcal{Q}^t })$$
 
 根据等式7更新$$\mathcal{W}^{t+1}$$
 
@@ -207,9 +207,9 @@ $$\eta^{t+1}, r^{t+1} = Update(\eta^t, r^t, t)$$
 
 ---
 
-首先，对$$\mathcal{W}$$的所有行进行量化后，得到$$\mathcal{Q}$$。注意我们这里并没有指定量化算法和位宽，所以我们的算法可以靓货的应用于所有的情况。我们之后会通过等式(6)计算量化误差，以及相关量化概率。通过给定的参数，我们使用算法1将$$\mathcal{W}$$划分为$$G_q$$和$$G_r$$。然后我们就获得了由量化权重和未量化权重组成的权重矩阵$$\widetilde{Q}$$。当$$W_i \in G_q$$时，我们使用$$\widetilde{Q}$$中量化的版本$$Q_i$$。否则，我们就直接使用$$W_i$$。$$\widetilde{Q}$$与$$\mathcal{Q}$$相比，更接近实际值的量化矩阵$$\mathcal{W}$$，这样就能提供更加合适的梯度方向。我们使用混合梯度$$\frac{\partial \mathcal{L}}{\partial \widetilde{ \mathcal{Q}_t}}$$ 在每次迭代时对$$\mathcal{W}$$进行更新：
+首先，对$$\mathcal{W}$$的所有行进行量化后，得到$$\mathcal{Q}$$。注意我们这里并没有指定量化算法和位宽，所以我们的算法可以靓货的应用于所有的情况。我们之后会通过等式(6)计算量化误差，以及相关量化概率。通过给定的参数，我们使用算法1将$$\mathcal{W}$$划分为$$G_q$$和$$G_r$$。然后我们就获得了由量化权重和未量化权重组成的权重矩阵$$ {Q}$$。当$$W_i \in G_q$$时，我们使用$$ {Q}$$中量化的版本$$Q_i$$。否则，我们就直接使用$$W_i$$。$$ {Q}$$与$$\mathcal{Q}$$相比，更接近实际值的量化矩阵$$\mathcal{W}$$，这样就能提供更加合适的梯度方向。我们使用混合梯度$$\frac{\partial \mathcal{L}}{\partial  { \mathcal{Q}_t}}$$ 在每次迭代时对$$\mathcal{W}$$进行更新：
 $$
-(7) \ \mathcal{W}^{t+1} = \mathcal{W}^t - \eta^t \frac{\partial \mathcal{L}}{\partial \widetilde{ \mathcal{Q} ^t}}
+(7) \ \mathcal{W}^{t+1} = \mathcal{W}^t - \eta^t \frac{\partial \mathcal{L}}{\partial  { \mathcal{Q} ^t}}
 $$
 这里$$\eta^t$$是第t次迭代的学习率。这就意味着量化部分可以通过量化后的权重的梯度进行更新，并且未量化部分将使用全精度的梯度进行更新。最后，学习率和SQ率按照预定义的一种规则进行更新。我们将在4.1节介绍这个规则。
 
