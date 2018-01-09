@@ -116,7 +116,7 @@ $$G_q = \varnothing;G_r = \varnothing$$
 
 $$N_q =r \times m;$$
 
-$$\boldsymbol{for} \  i = 1 \ to \ N_q \boldsymbol{do}$$
+$$for \  i = 1 \ to \ N_q do$$
 
 ​&emsp;$$ Normalize \boldsymbol{p} (with \widetilde{p} = p / ||p||_1); \hspace{3in} \triangleright ||p||_1 is L1 norm of p$$
 
