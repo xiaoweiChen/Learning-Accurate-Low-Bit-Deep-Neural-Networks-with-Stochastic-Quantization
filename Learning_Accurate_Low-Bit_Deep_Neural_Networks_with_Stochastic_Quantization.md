@@ -61,7 +61,7 @@ $$
 
 **BWN**时一个扩展二值权重网络，不过要引入实值比例因子$$\alpha \in \mathbb{R}^+$$与$$B_i$$计算可以近似得到全精度向量$$W_i$$ ,$$\alpha$$可以通过求解一个优化方程$$\mathcal{J}=min||W_i-\alpha B_i||$$获得：
 $$
-(2) \ B_i =sign(W_i) and \alpha=\frac{1}{d} \sum_{j=1}^{d} |W_i^j|
+(2) \ B_i =sign(W_i) \  and \ \alpha=\frac{1}{d} \sum_{j=1}^{d} |W_i^j|
 $$
 **TWN**在BWN基础上添加了0，可以通过量化因子$$\alpha$$与三元向量$$T_i \in \{1,0,-1\}^d$$进行计算，可以得到更加靠近原始$$W_i$$权重的向量。同时，又能保证对模型尺寸的高度压缩($$16 \times$$)。$$\alpha$$可以通过求解一个优化方程$$\mathcal{J}=min||W_i-\alpha T_i||$$获得：
 $$
@@ -118,21 +118,21 @@ $$N_q =r \times m;$$
 
 $$for \  i = 1 \ to \ N_q do$$
 
-​&emsp;$$ Normalize  {p} (with  {p} = p / ||p||_1);  {3in} \triangleright ||p||_1 is L1 norm of p$$
+&emsp;$$ Normalize  {p} (with  {p} = p / ||p||_1);  \ \ \  \triangleright ||p||_1 is L1 norm of p$$
 
-​&emsp;$$Sample a random value v i uniformly in (0,1];$$
+&emsp;$$Sample \  a \ random \ value \ v_i \ uniformly \ in \ (0,1];$$
 
-​&emsp;$$Set s_i = 0, and j = 0;  {3in} \triangleright s_i  s i accumulates the normalized probability$$
+&emsp;$$Set s_i = 0, and j = 0;  \ \ \ \triangleright s_i  \ accumulates \ the \ normalized \ probability$$
 
 ​&emsp;$$ {while} \  s_i < v_i \  {do};$$
 
-​&emsp;&emsp;$$j=j+1;s_i=s_i+ {p}_j; {3in} \triangleright  {p}_j is the j-th element  { {p}}$$
+&emsp;&emsp;$$j=j+1;s_i=s_i+ {p}_j; {3in} \triangleright  {p}_j is the j-th element  { {p}}$$
 
-​&emsp;$$ {end \ while}$$
+&emsp;$$ {end \ while}$$
 
-​&emsp;$$G_q = G_q \cup \{W_j\};$$
+&emsp;$$G_q = G_q \cup \{W_j\};$$
 
-​&emsp;$$p_j =0; {4in} \triangleright   avoid j-th channels being selected again$$
+&emsp;$$p_j =0;   \ \ \ \triangleright   avoid \ j \ th \ channels \ being \ selected \ again$$
 
 $$ {end \ for}$$
 
