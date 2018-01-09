@@ -61,7 +61,7 @@ $$
 
 **BWN**时一个扩展二值权重网络，不过要引入实值比例因子$$\alpha \in \mathbb{R}^+$$与$$B_i$$计算可以近似得到全精度向量$$W_i$$ ,$$\alpha$$可以通过求解一个优化方程$$\mathcal{J}=min||W_i-\alpha B_i||$$获得：
 $$
-(2) \ B_i =sign(W_i)  并且\alpha=\frac{1}{d} \sum_{j=1}^{d} |W_i^j|
+(2) \ B_i =sign(W_i) and \alpha=\frac{1}{d} \sum_{j=1}^{d} |W_i^j|
 $$
 **TWN**在BWN基础上添加了0，可以通过量化因子$$\alpha$$与三元向量$$T_i \in \{1,0,-1\}^d$$进行计算，可以得到更加靠近原始$$W_i$$权重的向量。同时，又能保证对模型尺寸的高度压缩($$16 \times$$)。$$\alpha$$可以通过求解一个优化方程$$\mathcal{J}=min||W_i-\alpha T_i||$$获得：
 $$
