@@ -1,0 +1,16 @@
+{
+    "title": "Learning Accurate Low-Bit Deep Neural Networks with Stochastic Quantization 中文翻译",
+	
+	"author" : "陈晓伟 chenxiaowei",
+	
+    "description":"作为对论文Learning Accurate Low-Bit Deep Neural Networks with Stochastic Quantization的中文翻译。",
+	
+	"language":"zh-hans",
+	
+	"direction":"ltr",
+	
+	"plugins": [
+		"katex",
+		"ace"
+	]
+}
