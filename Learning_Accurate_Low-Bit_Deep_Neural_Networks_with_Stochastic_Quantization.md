@@ -181,7 +181,7 @@ $$
 
 量化$$\mathcal{W}^t$$的每行，并得到量化矩阵 $$\mathcal{Q}^t$$；
 
-$$if \ r^t < 100 \ then​ $$
+$$if \ r^t < 100 \ then​$$
 
 &emsp;计算量化误差e；
 
