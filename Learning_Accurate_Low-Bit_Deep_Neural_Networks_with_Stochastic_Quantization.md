@@ -44,7 +44,14 @@ SQ算法普遍适用与任意低位DNN网络，包括BWN和TWN，等等。实验
 
 **二值权重网络**使用简单的随机方式将32位权重向量$$W_i$$使用如下方程量化为二值$$B_i$$：
 
-
+$$
+(1)\   B_i^j=\left\{
+\begin{aligned}
++1   && \ with probability p=  \sigma(W^j_i)  \\
+-1    && \ with probability1 - p \\
+\end{aligned}
+\right.
+$$
 
 这里的$$\sigma(x) = max(0,min(1,\frac{x+1}{2})) $$函数是个棱角分明的S曲线，并且$$j$$为$$W_i$$向量的索引。
 
@@ -111,21 +118,21 @@ $$N_q =r \times m;$$
 
 $$\boldsymbol{for} \  i = 1 \ to \ N_q \boldsymbol{do}$$
 
-​&emsp;$$ 归一化 \boldsymbol{p} (通过\widetilde{p} = p / ||p||_1); \hspace{3in} \triangleright ||p||_1是p的L_1正则$$
+​&emsp;$$ Normalize \boldsymbol{p} (with \widetilde{p} = p / ||p||_1); \hspace{3in} \triangleright ||p||_1 is L1 norm of p$$
 
-​&emsp;$$随机选择一个数v_i(均匀分布在(0,1]之间)$$
+​&emsp;$$Sample a random value v i uniformly in (0,1];$$
 
-​&emsp;$$s_i = 0, j =0(将s_i和j设置为0); \hspace{3in} \triangleright s_i 为归一化后概率的加和$$
+​&emsp;$$Set s_i = 0, and j = 0; \hspace{3in} \triangleright s_i  s i accumulates the normalized probability$$
 
 ​&emsp;$$\boldsymbol{while} \  s_i < v_i \ \boldsymbol{do};$$
 
-​&emsp;&emsp;$$j=j+1;s_i=s_i+\widetilde{p}_j;\hspace{3in} \triangleright \widetilde{p}_j 为\widetilde{\boldsymbol{p}} 向量的第j个元素$$ 
+​&emsp;&emsp;$$j=j+1;s_i=s_i+\widetilde{p}_j;\hspace{3in} \triangleright \widetilde{p}_j is the j-th element \widetilde{\boldsymbol{p}}$$
 
 ​&emsp;$$\boldsymbol{end \ while}$$
 
 ​&emsp;$$G_q = G_q \cup \{W_j\};$$
 
-​&emsp;$$p_j =0;\hspace{4in} \triangleright  避免第 j 个通道再次被选$$
+​&emsp;$$p_j =0;\hspace{4in} \triangleright   avoid j-th channels being selected again$$
 
 $$\boldsymbol{end \ for}$$
 
