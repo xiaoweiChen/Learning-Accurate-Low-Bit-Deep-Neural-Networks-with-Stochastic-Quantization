@@ -90,7 +90,7 @@ $$
 $$
 
 
-$$I_\Delta=\{j||W_i^j|>\Delta\}$$，$$|I_\Delta|$$为$$I_\Delta$$集的基数。
+$$I_\Delta=\{j||W_i^j|>\Delta\}$$，$$|I_\Delta|$$为$$I_\Delta$$的子集。
 
 ## 3. 具体方法
 
