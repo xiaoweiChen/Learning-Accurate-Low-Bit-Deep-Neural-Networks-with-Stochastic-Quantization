@@ -129,21 +129,21 @@ $$N_q =r \times m;$$
 
 $$for \  i = 1 \ to \ N_q \ do$$
 
- $$ Normalize  {p}  \ (with \ {p} = p / ||p||_1);  \ \ \  \triangleright ||p||_1 \ is \ L1 \ norm \ of \ p$$
+$$ Normalize  {p}  \ (with \ {p} = p / ||p||_1);  \ \ \  \triangleright ||p||_1 \ is \ L1 \ norm \ of \ p$$
 
- $$Sample \  a \ random \ value \ v_i \ uniformly \ in \ (0,1];$$
+$$Sample \  a \ random \ value \ v_i \ uniformly \ in \ (0,1];$$
 
- $$Set \ s_i = 0, \ and \ j \ = 0;  \ \ \ \triangleright s_i  \ accumulates \ the \ normalized \ probability$$
+$$Set \ s_i = 0, \ and \ j \ = 0;  \ \ \ \triangleright s_i  \ accumulates \ the \ normalized \ probability$$
 
- $$ {while} \  s_i < v_i \  {do};$$
+$$ {while} \  s_i < v_i \  {do};$$
 
-  $$j=j+1;s_i=s_i+ {p}_j; \ \ \  \triangleright  {p}_j \ is \ the \ j-th \ element \ p$$
+$$j=j+1;s_i=s_i+ {p}_j; \ \ \  \triangleright  {p}_j \ is \ the \ j-th \ element \ p$$
 
- $$ {end \ while}$$
+$$ {end \ while}$$
 
- $$G_q = G_q \cup \{W_j\};$$
+$$G_q = G_q \cup \{W_j\};$$
 
- $$p_j =0;   \ \ \ \triangleright   avoid \ j \ th \ channels \ being \ selected \ again$$
+$$p_j =0;   \ \ \ \triangleright   avoid \ j \ th \ channels \ being \ selected \ again$$
 
 $$ {end \ for}$$
 
@@ -194,13 +194,13 @@ $$
 
 if $$r^t$$ &lt; 100% then​
 
- 计算量化误差e；
+计算量化误差e；
 
- 计算量化概率p；
+计算量化概率p；
 
- 使用算法1中的$$r^t$$和**p**向量，将$$\mathcal{W}^t$$划分为$$G_q$$和$$G_r$$ ；
+使用算法1中的$$r^t$$和**p**向量，将$$\mathcal{W}^t$$划分为$$G_q$$和$$G_r$$ ；
 
- 计算得混合矩阵$$ { \mathcal{Q}^t}$$：当$$W_i \in G_r$$ 那么$$  {Q_i} = W_i$$，否则$$  {Q_i} = Q_i$$ ；
+计算得混合矩阵$$ { \mathcal{Q}^t}$$：当$$W_i \in G_r$$ 那么$$  {Q_i} = W_i$$，否则$$  {Q_i} = Q_i$$ ；
 
 $$else$$
 
