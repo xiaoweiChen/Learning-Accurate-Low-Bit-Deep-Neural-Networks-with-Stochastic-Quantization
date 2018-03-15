@@ -78,7 +78,7 @@ $$
 \end{aligned}
 \right.
 \quad ,
-\alpha = \frac{1}{|I_{\Delta}}| \sum_{i \in I_{\Delta}}|W^j_i|,
+\alpha = \frac{1}{|I_{\Delta}|} \sum_{i \in I_{\Delta}}|W^j_i|
 $$
 
 
@@ -86,7 +86,7 @@ $$
 
 
 $$
-(4)\ \Delta=\frac{0.7}{d}\sum_{j=1}^d|W_i^j|,
+(4)\ \Delta=\frac{0.7}{d}\sum_{j=1}^d|W_i^j|
 $$
 
 
