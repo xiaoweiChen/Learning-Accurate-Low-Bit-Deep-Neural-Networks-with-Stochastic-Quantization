@@ -45,8 +45,8 @@ SQ算法普遍适用与任意低位DNN网络，包括BWN和TWN，等等。实验
 $$
 (1)\   B_i^j=\left\{
 \begin{aligned}
-+1   && \ 概率为 p=  \sigma(W^j_i)  \\
--1   && \ 概率为1 - p \\
++1   \ 概率为 p=\sigma(W^j_i)  \\
+-1   \ 概率为 1 - p \\
 \end{aligned}
 \right.
 $$
