@@ -62,7 +62,7 @@ $$
 
 
 $$
-(2) \ B_i =sign(W_i)和\alpha=\frac{1}{d} \sum_{j=1}^{d} |W_i^j|
+(2) \ B_i =sign(W_i),\alpha=\frac{1}{d} \sum_{j=1}^{d} |W_i^j|
 $$
 
 
@@ -72,12 +72,12 @@ $$
 $$
 (3) \ T_i^j=\left\{
 \begin{aligned}
-+1   && if \quad W_i^j >\Delta  \\
-0 && if \quad |W_i^j| \le \Delta \\
--1    && if \quad W_j^j <-\Delta \\
++1   && ,if \quad W_i^j >\Delta  \\
+0 && ,if \quad |W_i^j| \le \Delta \\
+-1    && ,if \quad W_j^j <-\Delta \\
 \end{aligned}
 \right.
-\quad 和
+\quad ,
 \alpha = \frac{1}{|I_{\Delta}}| \sum_{i \in I_{\Delta}}|W^j_i|,
 $$
 
