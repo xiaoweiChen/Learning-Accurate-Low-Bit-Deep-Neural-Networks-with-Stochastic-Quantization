@@ -129,21 +129,21 @@ $$N_q =r \times m;$$
 
 $$for \  i = 1 \ to \ N_q \ do$$
 
-$$\ \ Normalize \  {p}  \ (with \ {p} = p / ||p||_1);  \ \ \  \triangleright ||p||_1 \ is \ L1 \ norm \ of \ p$$
+$$Normalize   {p}  \ (with \ {p} = p / ||p||_1);  \ \ \  \triangleright ||p||_1 \ is \ L1 \ norm \ of \ p$$
 
-$$\ \ Sample \  a \ random \ value \ v_i \ uniformly \ in \ (0,1];$$
+$$Sample \  a \ random \ value \ v_i \ uniformly \ in \ (0,1];$$
 
-$$\ \ Set \ s_i = 0, \ and \ j \ = 0;  \ \ \ \triangleright s_i  \ accumulates \ the \ normalized \ probability$$
+$$Set \ s_i = 0, \ and \ j \ = 0;  \ \ \ \triangleright s_i  \ accumulates \ the \ normalized \ probability$$
 
-$$\ \  {while} \  s_i < v_i \  {do};$$
+$${while} \  s_i < v_i \  {do};$$
 
-$$\ \ \ \ j=j+1;s_i=s_i+ \hat{{p}_j}; \ \ \  \triangleright  \hat{{p}_j} \ is \ the \ j-th \ element \ p$$
+$$j=j+1;s_i=s_i+ \hat{{p}_j}; \ \ \  \triangleright  \hat{{p}_j} \ is \ the \ j-th \ element \ p$$
 
-$$\ \ {end \ while}$$
+$${end \ while}$$
 
-$$\ \ G_q = G_q \cup \{W_j\};$$
+$$G_q = G_q \cup \{W_j\};$$
 
-$$\ \ p_j =0;   \ \ \ \triangleright   avoid \ j \ th \ channels \ being \ selected \ again$$
+$$p_j =0;   \ \ \ \triangleright   avoid \ j \ th \ channels \ being \ selected \ again$$
 
 $$ {end \ for}$$
 
@@ -155,7 +155,7 @@ $$G_r= \mathcal{W} /\ G_q;$$
 
 话说回来，我们的这种方法可以缓解由于过大的量化误差所导致的梯度方向偏差，每个通道的量化概率应该基于量化权重与实际权重之间的量化误差。如果量化误差很小，相关通道的量化的信息损失将会非常小，那么我们就应该给这个通道一个比较大的量化概率。这就意味着量化概率与量化误差之间成反比关系。
 
-我们用$$W_i$$表示全精度的权重向量，用$$Q_i$$表示这个权重向量的量化版本。简单起见，这里省略$$Q_i$$的位宽或缩放系数$$\alpha$$。也就意味着使用$$B_i, T_i$$或$$\alpha B_i, \alpha T_i$$用来表示不同低位DNN网络。我们根据$$Wi$$和$$Q_i$$的正则$$L_1$$距离来衡量量化误差：
+我们用$$W_i$$表示全精度的权重向量，用$$Q_i$$表示这个权重向量的量化版本。简单起见，这里省略$$Q_i$$的位宽或缩放系数$$\alpha$$。也就意味着使用$$B_i, T_i$$或$$\alpha B_i, \alpha T_i$$用来表示不同低位DNN网络。我们根据$$W_i$$和$$Q_i$$的正则$$L_1$$距离来衡量量化误差：
 
 
 $$
