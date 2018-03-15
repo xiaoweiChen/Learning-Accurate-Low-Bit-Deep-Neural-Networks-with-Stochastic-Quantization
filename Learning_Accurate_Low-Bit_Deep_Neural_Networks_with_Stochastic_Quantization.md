@@ -108,7 +108,7 @@ $$I_\Delta=\{j||W_i^j|>\Delta\}$$，$$|I_\Delta|$$为$$I_\Delta$$的子集。
 
 
 $$
-(5) \ G_q \cup G_r and G_q \cap G_r = \varnothing,
+(5) \ G_q \cup G_r , G_q \cap G_r = \varnothing,
 $$
 
 
@@ -129,21 +129,21 @@ $$N_q =r \times m;$$
 
 $$for \  i = 1 \ to \ N_q \ do$$
 
-$$ Normalize  {p}  \ (with \ {p} = p / ||p||_1);  \ \ \  \triangleright ||p||_1 \ is \ L1 \ norm \ of \ p$$
+$$\ \ Normalize \  {p}  \ (with \ {p} = p / ||p||_1);  \ \ \  \triangleright ||p||_1 \ is \ L1 \ norm \ of \ p$$
 
-$$Sample \  a \ random \ value \ v_i \ uniformly \ in \ (0,1];$$
+$$\ \ Sample \  a \ random \ value \ v_i \ uniformly \ in \ (0,1];$$
 
-$$Set \ s_i = 0, \ and \ j \ = 0;  \ \ \ \triangleright s_i  \ accumulates \ the \ normalized \ probability$$
+$$\ \ Set \ s_i = 0, \ and \ j \ = 0;  \ \ \ \triangleright s_i  \ accumulates \ the \ normalized \ probability$$
 
-$$ {while} \  s_i < v_i \  {do};$$
+$$\ \  {while} \  s_i < v_i \  {do};$$
 
-$$j=j+1;s_i=s_i+ {p}_j; \ \ \  \triangleright  {p}_j \ is \ the \ j-th \ element \ p$$
+$$\ \ \ \ j=j+1;s_i=s_i+ \hat{{p}_j}; \ \ \  \triangleright  \hat{{p}_j} \ is \ the \ j-th \ element \ p$$
 
-$$ {end \ while}$$
+$$\ \ {end \ while}$$
 
-$$G_q = G_q \cup \{W_j\};$$
+$$\ \ G_q = G_q \cup \{W_j\};$$
 
-$$p_j =0;   \ \ \ \triangleright   avoid \ j \ th \ channels \ being \ selected \ again$$
+$$\ \ p_j =0;   \ \ \ \triangleright   avoid \ j \ th \ channels \ being \ selected \ again$$
 
 $$ {end \ for}$$
 
