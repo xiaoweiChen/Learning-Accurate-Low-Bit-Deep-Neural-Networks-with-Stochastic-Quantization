@@ -74,7 +74,7 @@ $$
 \begin{aligned}
 +1   && ,if \quad W_i^j >\Delta  \\
 0 && ,if \quad |W_i^j| \le \Delta \\
--1    && ,if \quad W_j^j <-\Delta \\
+-1    && ,if \quad W_i^j <-\Delta \\
 \end{aligned}
 \right.
 \quad ,
